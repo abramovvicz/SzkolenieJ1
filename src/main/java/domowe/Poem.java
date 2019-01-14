@@ -12,10 +12,10 @@ public class Poem {
 
     public static void main(String[] args) throws IOException {
         Poem poem = new Poem();
-        poem.readFile();
+        poem.transformFile();
     }
 
-    private void readFile() throws IOException {
+    private void transformFile() throws IOException {
         Stream<String> readFile = Files.lines(Paths.get("brzechwa.txt"));
         /*someString
                 .map(x->x.substring(0,1).toUpperCase()+x.substring(1))
