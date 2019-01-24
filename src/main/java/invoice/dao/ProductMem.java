@@ -2,6 +2,7 @@ package invoice.dao;
 
 import invoice.model.Product;
 import invoice.model.ProductCategory;
+import invoice.model.Tax;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +16,10 @@ public class ProductMem implements IProduct {
 
 
     private void createListOfProducts() {
-        Product product1 = new Product(1, 400, ProductCategory.PHONE, "Xiaomi", 20);
-        Product product2 = new Product(2, 300, ProductCategory.LAPTOP, "MacBook", 10);
-        Product product3 = new Product(3, 1000, ProductCategory.CONSOLE, "NvidiaShield", 20);
-        Product product4 = new Product(4, 3000, ProductCategory.PC, "LenovoStation", 10);
+        Product product1 = new Product(1, 400, ProductCategory.PHONE, "Xiaomi", 20, Tax.PROCENT23);
+        Product product2 = new Product(2, 300, ProductCategory.LAPTOP, "MacBook", 10, Tax.PROCENT5);
+        Product product3 = new Product(3, 1000, ProductCategory.CONSOLE, "NvidiaShield", 20, Tax.PROCENT8);
+        Product product4 = new Product(4, 3000, ProductCategory.PC, "LenovoStation", 10, Tax.PROCENT19);
 
         productList.add(product1);
         productList.add(product2);

@@ -18,10 +18,6 @@ public interface IInvoice {
 
     List<Invoice> getInvoiceByCompanyName(String companyName);
 
-    String generateInvoiceNumber();
 
-    LocalDate generateDateInvoiceCreation();
-
-    LocalDate generateExpiresDateInvoice();
 
 }

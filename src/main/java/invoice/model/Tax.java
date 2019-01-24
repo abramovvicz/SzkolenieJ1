@@ -6,7 +6,7 @@ public enum Tax {
     private double tax;
 
 
-     Tax(double tax) {
+    Tax(double tax) {
         this.tax = tax;
     }
 
@@ -14,7 +14,4 @@ public enum Tax {
         return tax;
     }
 
-    public void setTax(double tax) {
-        this.tax = tax;
-    }
 }
