@@ -2,15 +2,10 @@ package invoice.dao;
 
 import invoice.model.Invoice;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.Random;
 
 
 public class InvoiceMem implements IInvoice {
-
-
 
 
     public InvoiceMem() {
@@ -43,8 +38,6 @@ public class InvoiceMem implements IInvoice {
     public List<Invoice> getInvoiceByCompanyName(String companyName) {
         return null;
     }
-
-
 
 
 }

@@ -2,6 +2,7 @@ package day1.sort;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -39,7 +40,8 @@ public class Main {
                 Collections.sort(cars, (x, y) -> (int) (x.getPrice() - y.getPrice()));
                 break;
             case MAXSPEED:
-                Collections.sort(cars, (x, y) -> x.getMaxSpeed() - y.getMaxSpeed());
+                Collections.sort(cars, (x, y) -> x.getMaxSpeed() - y.getMaxSpeed()); // tożsame z tym niżej \/
+                Collections.sort(cars, Comparator.comparingInt(Car::getMaxSpeed)); // tożsame z tym wyżej ^
                 break;
             case PRODUCER:
                 Collections.sort(cars, (x, y) -> x.getProducer().compareToIgnoreCase(y.getProducer()));

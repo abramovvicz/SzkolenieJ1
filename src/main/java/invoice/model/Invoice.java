@@ -17,6 +17,7 @@ public class Invoice {
     private Tax tax;
     private double sumWithTax;
     private double sumWithOutTax;
+    private InvoiceType invoiceType;
 
     private LocalDate localDate = LocalDate.now();
     LocalDate next2Week = localDate.plus(2, ChronoUnit.WEEKS);
@@ -38,7 +39,6 @@ public class Invoice {
 
 
     }
-
 
     public Invoice(String numberInvoice, LocalDate dateOfInvoice, LocalDate dateOfBillExpires,
                    Client client, ClientType clientType, int clientId, String productName,

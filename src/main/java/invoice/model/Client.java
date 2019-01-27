@@ -2,7 +2,7 @@ package invoice.model;
 
 import java.util.Objects;
 
-public class Client implements Comparable<Client>{
+public class Client implements Comparable<Client> {
     private int id;
     private ClientType clientType;
     private String shortName;
@@ -88,16 +88,9 @@ public class Client implements Comparable<Client>{
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", clientType=" + clientType +
-                ", shortName='" + shortName + '\'' +
-                ", name='" + name + '\'' +
-                ", discount=" + discount +
-                ", adress='" + adress + '\'' +
-                ", nip='" + nip + '\'' +
-                ", pesel='" + pesel + '\'' +
-                '}';
+        return "Client " + id +
+                " | name: " + name +
+                " | nip: " + nip;
     }
 
     @Override

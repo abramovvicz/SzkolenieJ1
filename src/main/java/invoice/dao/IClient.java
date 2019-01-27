@@ -5,6 +5,7 @@ import invoice.model.Client;
 import java.util.List;
 
 public interface IClient {
+
     boolean addClient(Client client);
 
     boolean removeClient(int id);

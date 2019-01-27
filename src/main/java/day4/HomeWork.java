@@ -22,7 +22,7 @@ public class HomeWork {
         Thread.sleep(2000);
         t2.interrupt();
         t1.join();
-        t2.join(); // poowduje ze on poceka az zakonczeniei się watku
+        t2.join(); // poowduje ze on poczeka az zakonczeniei się watku
         System.out.println("Wielkość listy " + homeWork.list.size());
         System.out.println("Wielkość seta " + homeWork.set.size());
         System.out.println();

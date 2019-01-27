@@ -3,14 +3,14 @@ package invoice.dao;
 import invoice.model.Adress;
 import invoice.model.Client;
 import invoice.model.ClientType;
+import javafx.beans.InvalidationListener;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
-public class ClientMem implements IClient {
+public class ClientMem implements IClient, ObservableList<Client> {
 
     List<Client> listOfClients = new ArrayList<>();
 
@@ -117,5 +117,170 @@ public class ClientMem implements IClient {
         return listOfClients.stream()
                 .filter(x -> x.getNip().equals(nip))
                 .findFirst().orElseThrow(() -> new IllegalArgumentException("Nip nie istnieje"));
+    }
+
+    @Override
+    public void addListener(ListChangeListener<? super Client> listener) {
+
+    }
+
+    @Override
+    public void removeListener(ListChangeListener<? super Client> listener) {
+
+    }
+
+    @Override
+    public boolean addAll(Client... elements) {
+        return false;
+    }
+
+    @Override
+    public boolean setAll(Client... elements) {
+        return false;
+    }
+
+    @Override
+    public boolean setAll(Collection<? extends Client> col) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Client... elements) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Client... elements) {
+        return false;
+    }
+
+    @Override
+    public void remove(int from, int to) {
+
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public Iterator<Client> iterator() {
+        return null;
+    }
+
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return null;
+    }
+
+    @Override
+    public boolean add(Client client) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends Client> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends Client> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public Client get(int index) {
+        return null;
+    }
+
+    @Override
+    public Client set(int index, Client element) {
+        return null;
+    }
+
+    @Override
+    public void add(int index, Client element) {
+
+    }
+
+    @Override
+    public Client remove(int index) {
+        return null;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public ListIterator<Client> listIterator() {
+        return null;
+    }
+
+    @Override
+    public ListIterator<Client> listIterator(int index) {
+        return null;
+    }
+
+    @Override
+    public List<Client> subList(int fromIndex, int toIndex) {
+        return null;
+    }
+
+    @Override
+    public void addListener(InvalidationListener listener) {
+
+    }
+
+    @Override
+    public void removeListener(InvalidationListener listener) {
+
     }
 }

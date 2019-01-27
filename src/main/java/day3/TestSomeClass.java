@@ -14,7 +14,7 @@ public class TestSomeClass {
             } // dla protected też można
         }; // po takiej metodzie jest średnik
         someClass.writeSomething();
-    someClass.write();
+        someClass.write();
     }
 
 }
