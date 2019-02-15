@@ -19,6 +19,7 @@ public class LambdaTest {
     public static void main(String[] args) {
         LambdaTest lambdaTest = new LambdaTest();
         lambdaTest.method1();
+
     }
 
 

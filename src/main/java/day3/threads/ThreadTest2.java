@@ -31,7 +31,7 @@ public class ThreadTest2 {
     }
 
     public synchronized static void add() {  // metoda synchronizowana dla watkow powoduje, że dopóki jeden z watkow
-        // korzysta to inny nie z tej metody nie może korzystać
+        // korzysta to inny  z tej metody nie może korzystać
 
         try {
             while (flag) {

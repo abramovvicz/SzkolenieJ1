@@ -35,7 +35,8 @@ public class TestMain extends Application {
 //      iProduct.getAllProducts().forEach(System.out::println);
         Adress adress1 = new Adress(2, "Warszawa", "Ulica Nazwa2", "90-123");
         Client client1 = new Client(8, ClientType.BUSINNESS, "Ske",
-                "SKEPSKJSL", adress1, "12334134123", "123424");
+                "SKEPSKJSL", adress1);
+
 //      System.out.println("wyciagnieto klienta z bazy " + iClient.getClientById(1));
 //      System.out.println("Klienta dodano " + iClient.addClient(client1));
 //      System.out.println("Klient edytowano " + iClient.editClient(2, client1));
