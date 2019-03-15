@@ -1,8 +1,6 @@
 package invoice.dao;
 
-import invoice.model.Adress;
-import invoice.model.Client;
-import invoice.model.ClientType;
+import invoice.model.*;
 import javafx.beans.InvalidationListener;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -20,20 +18,25 @@ public class ClientMem implements IClient, ObservableList<Client> {
 
     private void creatListOfClients() {
         Adress adress1 = new Adress(1, "Lodz", "Ulica Nazwa1", "90-123");
-        Client client1 = new Client(1, ClientType.BUSINNESS, "SDA",
-                "Software Developers Academy", adress1, "12345453", "2345364");
+        Individual client1 = new Individual(1, ClientType.INDIVIDUAL, "SDA",
+                "Software Developers Academy", adress1);
+        client1.setPesel("12345453");
         Adress adress2 = new Adress(2, "Warszawa", "Ulica Nazwa2", "90-123");
-        Client client2 = new Client(2, ClientType.BUSINNESS, "SDA1",
-                "Software Developers Academy", adress2, "12345453", "2345364");
+        Buissines client2 = new Buissines(2, ClientType.BUSINNESS, "SDA1",
+                "Software Developers Academy", adress2);
+        client2.setNip("233424");
         Adress adress3 = new Adress(3, "Gdańsk", "Ulica Nazwa3", "90-123");
-        Client client3 = new Client(3, ClientType.BUSINNESS, "SDA2",
-                "Software Developers Academy", adress3, "12345453", "2345364");
+        Buissines client3 = new Buissines(3, ClientType.BUSINNESS, "SDA2",
+                "Software Developers Academy", adress3);
+        client3.setNip("233424");
         Adress adress4 = new Adress(4, "Opole", "Ulica Nazwa4", "90-123");
-        Client client4 = new Client(4, ClientType.BUSINNESS, "SDA3",
-                "Software Developers Academy", adress4, "12345453", "2345364");
+        Individual client4 = new Individual(4, ClientType.BUSINNESS, "SDA3",
+                "Software Developers Academy", adress4);
+        client4.setPesel("233424");
         Adress adress5 = new Adress(5, "Kraków", "Ulica Nazwa5", "90-123");
-        Client client5 = new Client(5, ClientType.BUSINNESS, "SDA4",
-                "Software Developers Academy", adress5, "12345453", "2345364");
+        Individual client5 = new Individual(5, ClientType.BUSINNESS, "SDA4",
+                "Software Developers Academy", adress5);
+        client5.setPesel("23322332");
 
         listOfClients.add(client1);
         listOfClients.add(client2);
@@ -56,13 +59,19 @@ public class ClientMem implements IClient, ObservableList<Client> {
     @Override
     public boolean editClient(int clientID, Client client) {
         Client clientTemp = getClientById(clientID);
+        if (clientTemp instanceof Individual && client instanceof Individual) {
+            Individual individual = (Individual) client;
+            ((Individual) clientTemp).setPesel(individual.getPesel());
+        } else if (clientTemp instanceof Buissines && client instanceof Buissines) {
+            Buissines buissines = (Buissines) client;
+            ((Buissines) clientTemp).setNip(buissines.getNip());
+        }
+
         clientTemp.setName(client.getName());
         clientTemp.setAdress(client.getAdress());
-        clientTemp.setNip(client.getNip());
         clientTemp.setClientType(client.getClientType());
         clientTemp.setDiscount(client.getDiscount());
         clientTemp.setShortName(client.getShortName());
-        clientTemp.setPesel(client.getPesel());
         removeClient(clientID);
         return listOfClients.add(clientTemp);
     }
@@ -95,7 +104,7 @@ public class ClientMem implements IClient, ObservableList<Client> {
 
     @Override
     public Client getClientById(int clientId) {
-        Client emptyClient = new Client(-1, null, null, null, null, null, null);
+        Client emptyClient = new Client(-1, null, null, null, null);
         return listOfClients.stream().filter(x -> x.getId() == clientId).findFirst().orElse(emptyClient);
     }
 
@@ -115,9 +124,22 @@ public class ClientMem implements IClient, ObservableList<Client> {
     @Override
     public Client getClientByNip(String nip) {
         return listOfClients.stream()
-                .filter(x -> x.getNip().equals(nip))
+                .filter(x -> x instanceof Buissines)
+                .map(x -> (Buissines) x)
+                .filter(x -> nip.equals(x.getNip()))
                 .findFirst().orElseThrow(() -> new IllegalArgumentException("Nip nie istnieje"));
     }
+
+
+    //    @Override
+    public Client getClientByPesel(String nip) {
+        return listOfClients.stream()
+                .filter(x -> x instanceof Individual)
+                .map(x -> (Individual) x)
+                .filter(x -> nip.equals(x.getPesel()))
+                .findFirst().orElseThrow(() -> new IllegalArgumentException("Nip nie istnieje"));
+    }
+
 
     @Override
     public void addListener(ListChangeListener<? super Client> listener) {

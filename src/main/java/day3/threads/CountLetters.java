@@ -11,7 +11,9 @@ public class CountLetters extends Thread {
             while (end < 40) {
                 end++;
                 i = (i + 1) % 10;
-                System.out.print((char) (i + c));
+                //odliczanie o 1 do 10
+                System.out.println(i);
+//                System.out.print((char) (i + c));
                 Thread.sleep(300);
             }
         } catch (InterruptedException e) {

@@ -88,5 +88,5 @@ public class Car implements Comparable<Car> {
     }
 }
 //hashCode jest szybki powstał po to aby optymalizować sprawdzanie obiektów - sprawdzany jest jako pierwszy
-//jezeli dwa obiekty są identyczne to hascode jest taki
+//jezeli dwa obiekty są identyczne to hascode jest taki sam
 //jesli nie są identyczne haschode moze byc taki same dlatego sprawdzamy equals

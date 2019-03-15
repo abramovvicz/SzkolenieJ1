@@ -17,7 +17,7 @@ public class CalculatorImp {
 //        };
 //        return calc.calc(a, b);
 //    }
-//interfejs funkcyjny musi mieć tylko jedną implementacje metody tylko do lambdy
+//interfejs funkcyjny musi mieć tylko jedną implementacje metody abstrakcyjnej tylko do lambdy
 
     private int add(int a, int b) {
         Calculator calc = (x, y) -> x + y;

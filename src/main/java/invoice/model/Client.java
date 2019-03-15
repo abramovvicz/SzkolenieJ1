@@ -9,18 +9,22 @@ public class Client implements Comparable<Client> {
     private String name;
     private int discount;
     private Adress adress;
-    private String nip;
-    private String pesel;
 
-    public Client(int id, ClientType clientType, String shortName, String name, Adress adress, String nip, String pesel) {
+
+    public Client(int id, ClientType clientType, String shortName, String name, Adress adress) {
         this.id = id;
         this.clientType = clientType;
         this.shortName = shortName;
         this.name = name;
         this.adress = adress;
-        this.nip = nip;
-        this.pesel = pesel;
+
     }
+
+
+
+//    public Client(AToComposition a) {
+//        this.id = a.getId();
+//    }
 
     public int getId() {
         return id;
@@ -70,28 +74,8 @@ public class Client implements Comparable<Client> {
         this.adress = adress;
     }
 
-    public String getNip() {
-        return nip;
-    }
 
-    public void setNip(String nip) {
-        this.nip = nip;
-    }
 
-    public String getPesel() {
-        return pesel;
-    }
-
-    public void setPesel(String pesel) {
-        this.pesel = pesel;
-    }
-
-    @Override
-    public String toString() {
-        return "Client " + id +
-                " | name: " + name +
-                " | nip: " + nip;
-    }
 
     @Override
     public int compareTo(Client o) {
