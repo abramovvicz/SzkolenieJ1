@@ -1,4 +1,4 @@
-package day7.PanTadeusz;
+package day7.PanTadeusz2;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -11,19 +11,29 @@ public class CountWords {
     Map<String, Integer> map = new HashMap<>();
 
     public static void main(String[] args) {
-        day7.PanTadeusz2.CountWords countWords = new day7.PanTadeusz2.CountWords();
-//        System.out.println(countWords.readFile());
-//        System.out.println(countWords.findWord("telimena"));
-//        System.out.println(countWords.rhymes());
+        CountWords countWords = new CountWords();
         Map<String, Integer> mapa = countWords.rhymes();
+
         int a = mapa.values().stream().collect(Collectors.maxBy((x, y) -> x - y)).get();// to nam daje od najmniejszej do największej
-//        System.out.println("int a" + a);
         for (Map.Entry<String, Integer> m : mapa.entrySet()) {
             if (m.getValue() == a) {
                 System.out.println("pokazuje wartość " + m.getKey() + " : " + m.getValue());
             }
         }
+    }
 
+    public int getHero(String name) {
+        return map.get(name);
+    }
+
+
+    public List<String> readFile(String fileName) throws IOException {
+        List<String> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        while (reader.ready()) {
+            list.add(reader.readLine());
+        }
+        return list;
     }
 
     public int findWord(String name) {
@@ -47,8 +57,8 @@ public class CountWords {
                 }
                 if (last.substring(last.length() - numberOfLetters).equals(temp.substring(temp.length() - numberOfLetters))) {
                     String key;
-                    System.out.println("temp : "+ temp );
-                    System.out.println("last : "+ last);
+                    System.out.println("temp : " + temp);
+                    System.out.println("last : " + last);
                     if (temp.compareTo(last) < 0) {
                         key = temp + "_" + last;
                         System.out.println("compare:  " + temp.compareTo(last));
